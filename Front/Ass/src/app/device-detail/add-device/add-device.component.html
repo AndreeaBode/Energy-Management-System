@@ -1,0 +1,24 @@
+<h1 class="titlu">Add Device</h1>
+<form [formGroup]="deviceForm">
+  <div>
+    <label>Name:</label>
+    <input type="text" formControlName="name" required>
+  </div>
+  <div>
+    <label>Description:</label>
+    <input type="text" formControlName="description" required>
+  </div>
+  <div>
+    <label>Adress:</label>
+    <input type="text" formControlName="address" required>
+  </div>
+  <div>
+    <label> Maximum Hourly Energy Consumption:</label>
+    <input type="number" formControlName="maximumHourlyEnergyConsumption" required>
+  </div>
+
+  <div class="buttons">
+    <button mat-button color="primary" (click)="add()">Add</button>
+    <button mat-button color="warn" (click)="close()">Cancel</button>
+  </div>
+</form>

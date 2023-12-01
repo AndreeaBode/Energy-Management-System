@@ -1,0 +1,65 @@
+.titlu{
+    padding-top:30px;
+    text-align: center;
+}
+
+form {
+    margin: 20px;
+    padding-top: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 300px;
+  
+    label {
+      margin-bottom: 10px;
+      display: block;
+      font-weight: bold;
+    }
+  
+    input[type="text"],
+    input[type="email"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      font-size: 16px;
+    }
+  
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+  
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          opacity: 0.8;
+        }
+  
+        &:first-child {
+          background-color: #4caf50;
+          color: #fff;
+  
+          &:hover {
+            background-color: #45a049;
+          }
+        }
+  
+        &:last-child {
+          background-color: #f44336;
+          color: #fff;
+  
+          &:hover {
+            background-color: #d32f2f;
+          }
+        }
+      }
+    }
+  }
+  

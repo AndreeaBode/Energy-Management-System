@@ -1,0 +1,21 @@
+<div class="navbar">
+  <div class="navbar-left">
+    <a routerLink="" class="nav-link">Energy System</a>
+  </div>
+  <div class="navbar-right">
+    <a routerLink="/user-detail" class="nav-link" *ngIf="authService.userRole() === 'Admin'">Users</a>
+    <a routerLink="/device-detail" class="nav-link" *ngIf="authService.userRole() === 'Admin'">Devices</a>
+    <a routerLink="/my-devices" class="nav-link" *ngIf="authService.userRole() === 'User'">My Devices</a>
+    <a routerLink="/chart" class="nav-link" *ngIf="authService.userRole() === 'User'">Charts</a>
+    <ng-container *ngIf="authService.isLoggedIn(); else loggedOutTemplate">
+      <button (click)="onLogout()" class="nav-link btn-style">Logout</button>
+    </ng-container>
+    <ng-template #loggedOutTemplate>
+      <a routerLink="/login" class="nav-link">Login</a>
+    </ng-template>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+
+

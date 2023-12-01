@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  postgres:
+    image: "postgres"
+    tty: true
+    stdin_open: true
+    restart: always
+    container_name: postgres
+    networks:
+      - user_network
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DBNAME=User
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./database:/var/lib/postgres
+    ports:
+      - "5431:5432"
+
+  user_backend:
+    build: .
+    tty: true
+    stdin_open: true
+    container_name: user_backend
+    networks:
+      - user_network
+    image: user_backend
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/User
+      DB_IP: localhost
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: root
+      DB_DBNAME: User
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+networks:
+  user_network:

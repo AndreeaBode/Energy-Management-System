@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  postgres_device:
+    image: "postgres"
+    tty: true
+    stdin_open: true
+    restart: always
+    container_name: postgres_device
+    networks:
+      - rabbit_network
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=Device
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./device_database:/var/lib/postgres
+    ports:
+      - "5432:5432"
+
+  device_backend:
+    build: .
+    tty: true
+    stdin_open: true
+    container_name: device_backend
+    networks:
+      - rabbit_network
+    image: device_backend
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_device:5432/Device
+      DB_IP: localhost
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: root
+      DB_DBNAME: Device
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres_device
+
+networks:
+  rabbit_network:

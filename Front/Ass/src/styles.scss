@@ -1,0 +1,16 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+*{
+    margin: 0;
+}
+
+
+
+html, body { height: 100%; }
+body { 
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('https://i.postimg.cc/YqFd6KWs/1.jpg');
+  background-size:100% 100%;;
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

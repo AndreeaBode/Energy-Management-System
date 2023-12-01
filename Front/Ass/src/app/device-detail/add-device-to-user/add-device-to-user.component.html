@@ -1,0 +1,9 @@
+<div class="all">
+<h2 class="titlu">Selectați un utilizator</h2>
+<select [(ngModel)]="selectedUserId">
+  <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+</select>
+
+<button (click)="addDeviceToUser2()">Adaugă Mapping</button>
+<button (click)="closeDialog()">Anulează</button>
+</div>

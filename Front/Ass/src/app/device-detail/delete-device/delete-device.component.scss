@@ -1,0 +1,45 @@
+.delete{
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+    height:200px;
+    
+}
+h2.mat-dialog-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  mat-dialog-content p {
+    font-size: 16px;
+    color:black;
+    margin-bottom: 20px;
+    height:10px;
+    margin-top:30px;
+  }
+  
+  mat-dialog-actions {
+    justify-content: flex-end;
+    margin-top: 20px;
+    height:10px;
+  
+    button[mat-button] {
+      font-size: 16px;
+      margin-right: 80px;
+      border-radius: 14px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border:none;
+      transition: background-color 0.3s;
+    }
+  
+  
+    button[mat-button][color="primary"] {
+      background-color: #007bff;
+      color: #fff;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  

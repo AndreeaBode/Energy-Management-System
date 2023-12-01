@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<div class="deleteform">
+<mat-dialog-content>
+  <p>{{ data.message }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <div class="button">
+  <button mat-button (click)="onNoClick()">No</button>
+  <button mat-button color="primary" (click)="onYesClick()">Yes</button>
+</div>
+</mat-dialog-actions>
+</div>
