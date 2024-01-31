@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  postgres_measure:
+    image: "postgres"
+    tty: true
+    stdin_open: true
+    restart: always
+    container_name: postgres_measure
+    networks:
+      - rabbit_network
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=Measure
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./measure_database:/var/lib/postgres
+    ports:
+      - "5433:5432"
+
+  measure_backend:
+    build: .
+    tty: true
+    stdin_open: true
+    container_name: measure_backend
+    networks:
+      - rabbit_network
+    image: measure_backend
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_measure:5432/Measure
+      DB_IP: localhost
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: root
+      DB_DBNAME: Measure
+    ports:
+      - "9001:9001"
+    depends_on:
+      - postgres_measure
+
+networks:
+  rabbit_network:

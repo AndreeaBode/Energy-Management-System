@@ -1,0 +1,35 @@
+<div class="start">
+<div class="mat-elevation-z8">
+    <h2 class="user-details-title">Device details</h2>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ column }}
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="column !== 'actions'; else actionsColumn">
+            {{ element[column] }}
+        </ng-container>
+        <ng-template #actionsColumn>
+            <button mat-icon-button (click)="edit(element)">
+                <mat-icon color="primary">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="delete(element.id)">
+                <mat-icon color="warn">delete</mat-icon>
+            </button>
+            <button class ="mappingButton" mat-icon-button (click)="addDeviceToUser1(element.id)">
+              AddDeviceToUser
+          </button> 
+            
+        </ng-template>        
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator class="paginator" [pageSize]="5" 
+    [pageSizeOptions]="[5, 10, 50]" showFirstLastButtons></mat-paginator> 
+  </div>
+  <button class="add-button" (click)="add()">Add</button>
+  </div>

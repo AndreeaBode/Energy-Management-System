@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('../1.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 91.7vh;
+}
+
+.content {
+    width: auto;
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative;
+
+    .par {
+        padding-left:10%;
+        padding-bottom: 25px;
+        font-family: Arial;
+        letter-spacing: 1.2px;
+        line-height: 30px;
+    }
+    h1{
+        padding-top:10%;
+        padding-left:10%;
+        font-family: 'Times New Roman';
+        font-size: 50px;
+    }
+
+    span {
+        color: #ff7200;
+        font-size: 65px;
+    }
+    
+
+}
+
+

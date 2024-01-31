@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  producer:
+    build: .
+    tty: true
+    stdin_open: true
+    container_name: producer
+    networks:
+      - rabbit_network
+    image: producer
+    restart: always
+
+
+networks:
+  rabbit_network:

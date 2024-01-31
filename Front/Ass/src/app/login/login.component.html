@@ -1,0 +1,58 @@
+<div class="wrapper">
+    <div class="form-container">
+        <div class="title-text">
+            <div class="title login">Login Form</div>
+            <div class="title signup">Signup Form</div>
+        </div>
+        <div class="slide-controls">
+            <button class="button login" [class.active]="authType === 'login'" (click)="setAuthType('login')">Login</button>
+            <button class="button signup" [class.active]="authType === 'signup'" (click)="setAuthType('signup')">Sign up</button>
+        </div>
+
+        <div class="form-inner">
+            <div *ngIf="authType === 'login'">
+                <div class="field">
+                    <input type="text" placeholder="Email Address" [(ngModel)]="email" required>
+                    <div *ngIf="emailError" class="error-message">Email is required.</div>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" [(ngModel)]="password" required>
+                    <div *ngIf="passwordError" class="error-message">Password is required.</div>
+                </div>
+                
+                <div class="pass-link"><a href="#">Forgot password?</a></div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <button (click)="onLogin()">Login</button>
+                    <div *ngIf="errorMessage" class="error-message">
+                        {{ errorMessage }}
+                      </div>
+                </div>
+                
+            </div>
+            
+            <div *ngIf="authType === 'signup'">
+                <div class="field">
+                    <input type="text" placeholder="Email Address"  [(ngModel)]="email" required>
+                    <div *ngIf="emailError" class="error-message">Email is required.</div>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" [(ngModel)]="password" required>
+                    <div *ngIf="passwordError" class="error-message">Password is required.</div>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Confirm password" [(ngModel)]="confirmedPassword" required>
+                    <div *ngIf="passwordError" class="error-message">Password and confirmed password do not match.</div>
+                </div>
+                                 
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <button (click)="onSignup()" >Sign up</button>
+                </div>
+                <div *ngIf="errorMessage" class="error-message">
+                    {{ errorMessage }}
+                  </div>
+            </div> 
+        </div>
+    </div>
+</div>

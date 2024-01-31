@@ -1,0 +1,20 @@
+
+h2 {
+    color: #A80000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+  }
+  
+  .clear {
+    margin: 20px 0.5rem;
+    padding: 12px 24px;
+    background: linear-gradient(#a445b2, #00BFFF);
+    border: none;
+    border-radius: 24px;
+    color: #fff;
+  
+   &:hover, &:focus {
+      background: #40E0D0;
+      outline: none;
+    }
+  }

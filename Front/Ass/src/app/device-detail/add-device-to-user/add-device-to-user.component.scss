@@ -1,0 +1,36 @@
+.all {
+    height: 200px;
+    width: 500px;
+}
+
+.titlu {
+    padding-top: 30px;
+    font-size: 24px;
+    margin-left: 110px;
+}
+
+select {
+    width: 70%;
+    margin-left: 60px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+button {
+    margin-left: 65px;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    background-color: #948df8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    /* Stil pentru stare hover */
+    &:hover {
+        background-color: #0056b3;
+    }
+}
